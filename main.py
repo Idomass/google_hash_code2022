@@ -43,8 +43,6 @@ def main():
     args = parse_args()
     employees, projects = parse_data(args.filename)
     main_loop(employees, projects)
-    import IPython
-    IPython.embed()
 
 
 

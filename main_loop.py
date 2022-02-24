@@ -33,12 +33,13 @@ def main_loop(employees: List[Employee], projects: List[Project]):
     max_day = max_proj_value(projects)
     print(max_day)
     for i in range(max_day):
-        if not all([employee.busy for employee in employees]):
+        if all([employee.busy for employee in employees]):
             curr_day += 1
             progress_day(ongoing_projects, completed_projects, working_employees)
             continue
         projects = [project for project in projects if project not in ongoing_projects and project not in completed_projects]
         projects = [project for project in projects if project.best_before + project.score - project.duration > curr_day]
+
         for project in projects:
             if find_employes_for_project(project, skills):
                 ongoing_projects.append(project)
@@ -49,7 +50,5 @@ def main_loop(employees: List[Employee], projects: List[Project]):
 
         curr_day += 1
         progress_day(ongoing_projects, completed_projects, working_employees)
-    import IPython
-    IPython.embed()
-    generate_output(completed_projects + ongoing_projects)
 
+    generate_output(completed_projects + ongoing_projects)
