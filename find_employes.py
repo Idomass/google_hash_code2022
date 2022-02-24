@@ -16,8 +16,12 @@ def find_employes_for_project(project, skills):
             if len(skills[skill.name][level]) == 0:
                 continue
 
-            employee = skills[skill.name][level][0]
-            project.employees[i] = employee
+            for employee in skills[skill.name][level]:
+                if not employee.busy:
+                    project.employees[i] = employee
+                    break
+            if project.employees[i] is None:
+                continue
 
             for employ_skill in employees.skills:
                 for j, skill_to_mentor in enumerate(project.skills):
