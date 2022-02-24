@@ -4,7 +4,7 @@ import argparse
 
 from typing import List, Tuple
 from dataset import Skill, Employee, Project
-
+from main_loop import main_loop
 
 def parse_data(file) -> Tuple[List[Employee], List[Project]]:
     """
@@ -41,9 +41,8 @@ def parse_args():
 
 def main():
     args = parse_args()
-
     employees, projects = parse_data(args.filename)
-
+    main_loop(employees, projects)
     import IPython
     IPython.embed()
 
