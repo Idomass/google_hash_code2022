@@ -1,3 +1,5 @@
+from audioop import reverse
+from doctest import FAIL_FAST
 from typing import List
 from dataset import Project, Skill, Employee
 
@@ -31,7 +33,6 @@ def create_multi_dict(projects: List[Project], employees : List[Employee]):
     
     for skill_name in skill_dict:
         for level_int in skill_dict[skill_name]:
-            skill_dict[skill_name][level_int].sort( key = lambda employee : emloyee.total_skill_level)
-            # skill_dict[skill_name][level_int] = sorted(skill_dict[skill_name][level_int], key = lambda employee : emloyee.total_skill_level())
+            skill_dict[skill_name][level_int] = sorted(skill_dict[skill_name][level_int], key = lambda employee : emloyee.total_skill_level)[::-1]
                 
     return skill_dict
