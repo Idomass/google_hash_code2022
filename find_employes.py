@@ -32,6 +32,10 @@ def find_employes_for_project(project, skills):
             break
 
         if project.employees[i] is None:
+            if project.employees is not None:
+                for employee in project.employees:
+                    if employee is not None:
+                        employee.busy = False
             return False
 
     return True
