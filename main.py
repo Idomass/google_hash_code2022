@@ -20,7 +20,7 @@ def parse_data(file) -> Tuple[List[Employee], List[Project]]:
 
         skills = [Skill(*file.readline().split()) for _ in range(int(num_skills))]
 
-        employees.append(Employee(name, skills))
+        employees.append(Employee(name, skills, False))
 
     for _ in range(num_projects):
         project_line = file.readline().split()
