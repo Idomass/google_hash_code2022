@@ -15,3 +15,11 @@ def max_proj_value(projects: List[Project]) -> int:
             selected_index = index
 
     return selected_index
+
+
+def generate_output(projects: List[Project]):
+    with open('output', 'w') as output:
+        output.write(str(len(projects)) + '\n')
+
+        for project in projects:
+            output.write(str(project))

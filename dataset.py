@@ -35,6 +35,11 @@ class Project:
         self.employees      = [None] * len(skills)
         self.mentors        = [None] * len(skills)
 
+    def __str__(self):
+        output = f'{self.name} {len(self.employees)}\n'
+        output += ' '.join(employee.name for employee in self.employees) + '\n'
+
+        return output
 
     name:           str         = field(compare=False)
     duration:       int         = field(compare=False)
