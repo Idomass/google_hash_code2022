@@ -31,7 +31,6 @@ def main_loop(employees: List[Employee], projects: List[Project]):
     completed_projects = []
     curr_day = 0
     max_day = max_proj_value(projects)
-    print(max_day)
     for i in range(max_day):
         if all([employee.busy for employee in employees]):
             curr_day += 1
@@ -44,8 +43,6 @@ def main_loop(employees: List[Employee], projects: List[Project]):
             if find_employes_for_project(project, skills):
                 ongoing_projects.append(project)
                 for employee in project.employees:
-                    assert employee.busy == False
-                    employee.busy = True
                     working_employees.append(employee)
 
         curr_day += 1
