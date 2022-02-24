@@ -16,6 +16,7 @@ class Skill:
 class Employee:
     name:   str
     skills: List[Skill]
+    busy: bool
 
     @property
     def total_skill_level(self):
