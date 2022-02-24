@@ -31,8 +31,15 @@ class Project:
         self.best_before    = int(best_before)
         self.skills         = skills
 
+        # These are defaulted to None values, until changed
+        self.employees      = [None] * len(skills)
+        self.mentors        = [None] * len(skills)
+
+
     name:           str         = field(compare=False)
     duration:       int         = field(compare=False)
     score:          int
     best_before:    int         = field(compare=False)
     skills:         List[Skill] = field(compare=False)
+    employees:      List[Employee]  = field(compare=False)
+    mentors:        List[Employee]  = field(compare=False)
