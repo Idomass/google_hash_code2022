@@ -22,7 +22,7 @@ def find_employes_for_project(project, skills):
             for employ_skill in employees.skills:
                 for j, skill_to_mentor in enumerate(project.skills):
                     if skill_to_mentor.name == employ_skill.name \
-                        and employ_skill.level >= skill_to_mentor.level
+                        and employ_skill.level >= skill_to_mentor.level:
                         project.mentors[j] = True
             break
 
