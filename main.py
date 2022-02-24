@@ -44,8 +44,8 @@ def main():
 
     employees, projects = parse_data(args.filename)
 
-    print([project.score for project in projects])
-    print([project.score for project in sorted(projects)])
+    import IPython
+    IPython.embed()
 
 
 

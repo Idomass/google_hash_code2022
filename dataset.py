@@ -17,6 +17,10 @@ class Employee:
     name:   str
     skills: List[Skill]
 
+    @property
+    def total_skill_level(self):
+        return sum(skill.level for skill in self.skills)
+
 
 @dataclass(order=True)
 class Project:
