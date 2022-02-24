@@ -23,12 +23,11 @@ def find_employes_for_project(project, skills):
             if project.employees[i] is None:
                 continue
 
-            # for employ in project.employees:
-            #     employ_skills = employ.skills
-            #     for j, skill_to_mentor in enumerate(project.skills):
-            #         if skill_to_mentor.name == employ_skills[j].name \
-            #             and employ_skills[j].level >= skill_to_mentor.level:
-            #             project.mentors[j] = True
+            for employ_skill in project.employees[i].skills:
+                for j, skill_to_mentor in enumerate(project.skills):
+                    if skill_to_mentor.name == employ_skill.name \
+                        and employ_skill.level >= skill_to_mentor.level:
+                        project.mentors[j] = True
             break
 
         if project.employees[i] is None:
