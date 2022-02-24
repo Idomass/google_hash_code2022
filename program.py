@@ -28,5 +28,10 @@ def create_multi_dict(projects: List[Project], employees : List[Employee]):
                     skill_dict[skill.name][skill.level] = []
 
                 skill_dict[skill.name][skill.level] += [emloyee]
+    
+    for skill_name in skill_dict:
+        for level_int in skill_dict[skill_name]:
+            skill_dict[skill_name][level_int].sort( key = lambda employee : emloyee.total_skill_level)
+            # skill_dict[skill_name][level_int] = sorted(skill_dict[skill_name][level_int], key = lambda employee : emloyee.total_skill_level())
                 
     return skill_dict
