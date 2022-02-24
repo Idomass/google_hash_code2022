@@ -1,24 +1,24 @@
 from typing import List
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
-@dataclass
+@dataclass(order=True)
 class Skill:
     def __init__(self, name: str, level: str):
         self.name = name
         self.level = int(level)
 
-    name:   str
+    name:   str = field(compare=False)
     level:  int
 
 
-@dataclass
+@dataclass(order=True)
 class Employee:
     name:   str
     skills: List[Skill]
 
 
-@dataclass
+@dataclass(order=True)
 class Project:
     def __init__(self, name: str, duration: str, score: str, best_before: str, skills: List[Skill]) -> None:
         self.name           = name
@@ -27,8 +27,8 @@ class Project:
         self.best_before    = int(best_before)
         self.skills         = skills
 
-    name:           str
-    duration:       int
+    name:           str         = field(compare=False)
+    duration:       int         = field(compare=False)
     score:          int
-    best_before:    int
-    skills:         List[Skill]
+    best_before:    int         = field(compare=False)
+    skills:         List[Skill] = field(compare=False)

@@ -42,8 +42,10 @@ def parse_args():
 def main():
     args = parse_args()
 
-    print(parse_data(args.filename))
+    employees, projects = parse_data(args.filename)
 
+    print([project.score for project in projects])
+    print([project.score for project in sorted(projects)])
 
 
 
